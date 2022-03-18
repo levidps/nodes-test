@@ -1,0 +1,41 @@
+:host {
+  .folder, ::ng-deep .file {
+    display: flex;
+    align-items: center;
+
+    h2 {
+      font-size: 1rem;
+      font-weight: normal;
+      margin: .5rem 0.25em;
+    }
+  }
+
+  .nodeList {
+    margin-left: .5rem;
+    padding-left: 1rem;
+    position: relative;
+
+    &:before {
+      content: '';
+      height: calc(100% - 1rem);
+      border-left: 2px solid var(--border-color, #333);
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+
+    > * {
+      display: block;
+      position: relative;
+
+      &:before {
+        content: '';
+        width: .75rem;
+        position: absolute;
+        left: -1rem;
+        top: 50%;
+        border-top: 2px solid var(--border-color);
+      }
+    }
+  }
+}
