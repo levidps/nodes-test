@@ -1,0 +1,20 @@
+@mixin nodeOutline {
+  padding: 0 .25rem;
+  border-radius: 3px;
+  border: 1px solid transparent;
+
+  &:hover, &:focus-within {
+    border-color: inherit;
+
+    app-node-actions {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  app-node-actions {
+    opacity: 0;
+    transform: translateX(10px);
+    transition: all .3s ease;
+  }
+}

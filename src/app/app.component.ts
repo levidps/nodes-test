@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {NodesService} from "./core/nodes/nodes.service";
+import {NodeModel} from "./core/nodes/node.model";
 
 @Component({
   selector: 'app-root',
@@ -7,10 +8,31 @@ import {NodesService} from "./core/nodes/nodes.service";
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  constructor(public nodeService: NodesService) {
+  public tempNode: NodeModel | undefined;
+
+  constructor(public nodesService: NodesService) {
   }
 
   ngOnInit() {
-    this.nodeService.initNodes();
+    this.nodesService.initNodes();
+  }
+
+  public addFolder() {
+    this.tempNode = this.nodesService.createNewNode('folder');
+  }
+
+  public removeChild(nodeId: string) {
+    this.nodesService.removeNode(nodeId, null);
+  }
+
+  public saveNode(node: NodeModel | null) {
+    if (node?.name === '') {
+      window.alert('Name Missing!');
+      return;
+    }
+    if (node) {
+      this.nodesService.addNode(node);
+    }
+    this.tempNode = undefined;
   }
 }

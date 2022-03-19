@@ -1,0 +1,10 @@
+<div class="node__actions">
+  <button *ngIf="nodeType === 'folder'" class="node__actions__add" (click)="addNode.emit()">
+    <img src="/assets/cross.svg" alt="add" />
+    <span class="sr-only">Add node</span>
+  </button>
+  <button class="node__actions__delete" (click)="removeNode.emit()">
+    <img src="/assets/trash.svg" alt="remove" />
+    <span class="sr-only">Remove node</span>
+  </button>
+</div>

@@ -1,10 +1,12 @@
 <div class="folder">
-  <img src="/assets/folder-open-regular.svg" alt="folder icon"/>
-  <h2>{{ folder.name }}</h2>
+  <app-node-icon icon="folder"></app-node-icon>
+  <h2 *ngIf="folder.name">{{ folder.name }}</h2>
+  <app-node-actions nodeType="folder" (addNode)="addNode()" (removeNode)="removeNode.emit(folder.id)"></app-node-actions>
 </div>
-<div class="nodeList" *ngIf="folder && folder?.children?.length">
+<div class="node-list" *ngIf="(folder && folder?.children?.length) || newNode">
   <ng-container *ngFor="let node of folder?.children">
-    <app-file-item *ngIf="node.type === 'file'" [file]="node"></app-file-item>
-    <app-folder-item *ngIf="node.type === 'folder'" [folder]="node"></app-folder-item>
+    <app-file-item *ngIf="node.type === 'file'" [file]="node" (removeNode)="removeChild($event)"></app-file-item>
+    <app-folder-item *ngIf="node.type === 'folder'" [folder]="node" (removeNode)="removeChild($event)"></app-folder-item>
   </ng-container>
+  <app-node-input *ngIf="newNode" [node]="newNode" (complete)="saveNode($event)"></app-node-input>
 </div>

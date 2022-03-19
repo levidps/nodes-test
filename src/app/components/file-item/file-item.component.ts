@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import {NodeModel} from "../../core/nodes/node.model";
 
 @Component({
@@ -7,7 +7,9 @@ import {NodeModel} from "../../core/nodes/node.model";
   styleUrls: ['./file-item.component.scss']
 })
 export class FileItemComponent implements OnInit {
-  @Input() file: NodeModel | undefined;
+  @Input() file: NodeModel = {id: '', type: 'file'};
+
+  @Output() removeNode: EventEmitter<string> = new EventEmitter<string>();
 
   constructor() { }
 

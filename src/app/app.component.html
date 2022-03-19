@@ -2,11 +2,15 @@
   <h1>Folder Structure Maker</h1>
 </header>
 
-<button (click)="nodeService.addNode('folder')">Add folder to root</button>
-
 <main>
-  <ng-container *ngFor="let node of nodeService.nodesList">
-    <app-file-item *ngIf="node.type === 'file'" [file]="node"></app-file-item>
-    <app-folder-item *ngIf="node.type === 'folder'" [folder]="node"></app-folder-item>
-  </ng-container>
+  <button class="btn-primary" (click)="addFolder()">Add folder to root</button>
+
+  <div class="nodes-wrapper">
+    <ng-container *ngFor="let node of nodesService.nodesList">
+      <app-folder-item *ngIf="node.type === 'folder'" [folder]="node" (removeNode)="removeChild($event)"></app-folder-item>
+    </ng-container>
+    <app-node-input *ngIf="tempNode" [node]="tempNode" (complete)="saveNode($event)"></app-node-input>
+  </div>
+
+  <textarea readonly [innerText]="nodesService.nodesList | json "></textarea>
 </main>

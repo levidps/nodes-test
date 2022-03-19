@@ -1,0 +1,51 @@
+:host {
+  .input-wrapper {
+    display: flex;
+    align-items: center;
+  }
+
+  input {
+    margin: 0.5rem 0.25em;
+  }
+
+  button {
+
+    img {
+      max-width: 100%;
+      max-height: 100%;
+      margin-top: 0;
+    }
+
+    &.node-button {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 3px;
+
+      &__type {
+        background-color: #e2e2e2;
+        margin-right: .5rem;
+        padding: .25rem .5rem;
+        line-height: 1;
+        border: 1px solid;
+      }
+
+      &:not(.node-button__type) {
+        height: 1.25rem;
+        width: 1.25rem;
+        margin-right: .25rem;
+        padding: .125rem;
+        border: 2px solid;
+      }
+
+      &__save {
+        background-color: #000;
+      }
+
+      &__cancel img {
+        max-width: 75%;
+        max-height: 75%;
+      }
+    }
+  }
+}

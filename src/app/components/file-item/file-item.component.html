@@ -1,4 +1,5 @@
 <div class="file">
-  <img src="/assets/file-regular.svg" alt="file icon"/>
+  <app-node-icon icon="file"></app-node-icon>
   <h2>{{ file?.name }}</h2>
+  <app-node-actions nodeType="file" (removeNode)="removeNode.emit(file?.id)"></app-node-actions>
 </div>

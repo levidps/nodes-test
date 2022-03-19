@@ -1,0 +1,19 @@
+<div class="input-wrapper" *ngIf="node">
+  <ng-container *ngIf="!node.type; else hasType">
+    <button class="node-button node-button__type" (click)="node.type = 'folder'">Folder</button>
+    <button class="node-button node-button__type" (click)="node.type = 'file'">File</button>
+  </ng-container>
+
+  <ng-template #hasType>
+    <app-node-icon [icon]="node?.type || null"></app-node-icon>
+    <input [(ngModel)]="node.name" type="text" appAutofocus>
+    <button class="node-button node-button__save btn-icon" (click)="save()">
+      <img src="/assets/check.svg" alt="save">
+      <span class="sr-only">Save node</span>
+    </button>
+    <button class="node-button node-button__cancel btn-icon" (click)="cancel()">
+      <img src="/assets/cross.svg" alt="cancel">
+      <span class="sr-only">Cancel</span>
+    </button>
+  </ng-template>
+</div>

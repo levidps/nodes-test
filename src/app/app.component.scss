@@ -12,5 +12,30 @@ header {
 }
 
 main {
+  padding: 1rem;;
+}
+
+.nodes-wrapper {
+  display: flex;
+  flex-flow: column;
+  align-items: flex-start;
+}
+
+button {
+  padding: 1rem 1.5rem;
+  border-radius: 3px;
+  margin-bottom: 1rem;
+  line-height: .1;
+  background-color: #000;
+  color: #fff;
+}
+
+textarea {
+  border-style: solid;
+  width: calc(100% - 2rem);
+  height: 200px;
+  font-family: monospace;
+  margin-top: 2rem;
   padding: 1rem;
+  border-radius: 3px;
 }

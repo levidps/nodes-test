@@ -1,4 +1,12 @@
+@import "src/scss/mixins";
+
 :host {
+  display: block;
+
+  .folder {
+    @include nodeOutline;
+  }
+
   .folder, ::ng-deep .file {
     display: flex;
     align-items: center;
@@ -10,7 +18,7 @@
     }
   }
 
-  .nodeList {
+  .node-list {
     margin-left: .5rem;
     padding-left: 1rem;
     position: relative;

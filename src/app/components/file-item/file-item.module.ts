@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FileItemComponent } from './file-item.component';
+import {NodeIconModule} from "../node-icon/node-icon.module";
+import {NodeActionsModule} from "../node-actions/node-actions.module";
 
 
 
@@ -12,7 +14,9 @@ import { FileItemComponent } from './file-item.component';
         FileItemComponent
     ],
     imports: [
-        CommonModule
+        CommonModule,
+        NodeIconModule,
+        NodeActionsModule
     ]
 })
 export class FileItemModule { }
