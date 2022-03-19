@@ -7,7 +7,7 @@
 
   <div class="nodes-wrapper">
     <ng-container *ngFor="let node of nodesService.nodesList">
-      <app-folder-item *ngIf="node.type === 'folder'" [folder]="node" (removeNode)="removeChild($event)"></app-folder-item>
+      <app-folder-item [@slideInFromRight] *ngIf="node.type === 'folder'" [folder]="node" (removeNode)="removeChild($event)"></app-folder-item>
     </ng-container>
     <app-node-input *ngIf="tempNode" [node]="tempNode" (complete)="saveNode($event)"></app-node-input>
   </div>

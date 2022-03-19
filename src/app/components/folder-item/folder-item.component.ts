@@ -1,11 +1,13 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {NodeModel} from "../../core/nodes/node.model";
 import {NodesService} from "../../core/nodes/nodes.service";
+import {slideInFromRight} from "../../animations/slide-in";
 
 @Component({
   selector: 'app-folder-item',
   templateUrl: './folder-item.component.html',
-  styleUrls: ['./folder-item.component.scss']
+  styleUrls: ['./folder-item.component.scss'],
+  animations: [slideInFromRight]
 })
 export class FolderItemComponent {
   @Input() public folder: NodeModel = {id: "", type: null};

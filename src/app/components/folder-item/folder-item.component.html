@@ -5,8 +5,8 @@
 </div>
 <div class="node-list" *ngIf="(folder && folder?.children?.length) || newNode">
   <ng-container *ngFor="let node of folder?.children">
-    <app-file-item *ngIf="node.type === 'file'" [file]="node" (removeNode)="removeChild($event)"></app-file-item>
-    <app-folder-item *ngIf="node.type === 'folder'" [folder]="node" (removeNode)="removeChild($event)"></app-folder-item>
+    <app-file-item [@slideInFromRight] *ngIf="node.type === 'file'" [file]="node" (removeNode)="removeChild($event)"></app-file-item>
+    <app-folder-item [@slideInFromRight] *ngIf="node.type === 'folder'" [folder]="node" (removeNode)="removeChild($event)"></app-folder-item>
   </ng-container>
   <app-node-input *ngIf="newNode" [node]="newNode" (complete)="saveNode($event)"></app-node-input>
 </div>
