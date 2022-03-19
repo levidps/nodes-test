@@ -23,26 +23,35 @@
     padding-left: 1rem;
     position: relative;
 
-    &:before {
-      content: '';
-      height: calc(100% - 1rem);
-      border-left: 2px solid var(--border-color, #333);
-      position: absolute;
-      left: 0;
-      top: 0;
-    }
-
     > * {
       display: block;
       position: relative;
 
       &:before {
         content: '';
+        height: 1rem;
         width: .75rem;
+        border-left: 2px solid var(--border-color, #333);
+        border-bottom: 2px solid var(--border-color, #333);
         position: absolute;
-        left: -1rem;
-        top: 50%;
-        border-top: 2px solid var(--border-color);
+        left: -.825rem;
+        top: 0;
+      }
+
+      &:after {
+        position: absolute;
+        left: -.825rem;
+        top: 0;
+        content: '';
+        display: block;
+        border-left: 2px solid var(--border-color, #333);
+        height: 100%;
+      }
+
+      &:last-child {
+        &:after {
+          display: none;
+        }
       }
     }
   }
